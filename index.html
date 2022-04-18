@@ -1,12 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <script>
+        function mostrarCarta(imagen, imagenHidden){
+            imagen.hidden=true;
+            imagenHidden.hidden = false;
+        }
+
+        function esconderCartas(){
+            let cartas = document.getElementsByClassName('cartasMostrar');
+            for(let i=0; i<cartas.length; i++){
+                if(cartas[i].hidden)
+                    cartas[i].hidden = false;
+            }
+            let cartasEsconder = document.getElementsByClassName('cartasEsconder');
+            for(let i=0; i<cartasEsconder.length; i++){
+                if(!cartasEsconder[i].hidden)
+                    cartasEsconder[i].hidden = true;
+            }
+        }
+    </script>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Suerte</title>
+    <link rel="stylesheet" href="./css/style.css">
 </head>
+<header>
+    <nav>
+        <a href="#">Formulario</a>
+        <a href="#">Contacto</a>
+    </nav>
+    <h1 class="title">Pruebe su suerte</h1>
+</header>
 <body>
+    <div id="mezclar">
+        <button id="boton-mezclar" onclick="esconderCartas()">Mezclar</button>
+    </div>
     
+    <div class="contenedor">
+        <div class="item-a">
+            <img id="imagen1" class="cartasMostrar" src="./img/card-back.png" alt="imagen" onclick="mostrarCarta(this,  document.getElementById('imagen1hidden'))">
+            <img hidden id="imagen1hidden" class="cartasEsconder" src="./img/1basto.png" alt="1-basto">
+        </div>
+        <div class="item-b">
+            <img id="imagen2" class="cartasMostrar" src="./img/card-back.png" alt="imagen" onclick="mostrarCarta(this,  document.getElementById('imagen2hidden'))">
+            <img hidden id="imagen2hidden" class="cartasEsconder" src="./img/1espada.png" alt="1-espada">
+        </div>
+        <div class="item-c">
+            <img id="imagen3" class="cartasMostrar" src="./img/card-back.png" alt="imagen" alt="7-espada" onclick="mostrarCarta(this,  document.getElementById('imagen3hidden'))">
+            <img hidden id="imagen3hidden" class="cartasEsconder" src="./img/7espada.png">
+        </div>
+        <div class="item-d">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur cum, voluptates eum laudantium optio excepturi voluptatem neque dolore non sapiente, maiores at eos animi iste voluptas quae commodi officiis velit?</p>
+        </div>
+    </div>
 </body>
+<footer>
+    <p class="title">Síguenos</p>
+</footer>
 </html>
